@@ -36,9 +36,16 @@ The dev environment in Magento 2 can be painfully slow.  Here are some recommend
 1. Disable only FPC and Block Cache.  Leave all others on. Turn all caches on for front-end development or testing
 2. Enable only the extensions that you need.  Many of the analytics extensions are completely unnecessary. 
 3. Opcache is enabled -- this appears to make a _substantial_ difference. 
+4. Under `Stores -> Configuration -> Advanced -> Developer`, bundle and concatenate JS/CSS when feasible.  The excessive number of requests in Docker slows the site down substantially. (Obviously this is not feasible when doing FE work)
 
 ### Stack
 
 1. **MySQL:** Percona, 5.7
 2. **PHP-FPM:** FPM-Apline, 7.1
 2. **Nginx** 
+
+### Benchmarks
+
+##### Loading Products Page in Admin (with 0 products)
+1. Docker: 29s
+2. Vagrant: 
