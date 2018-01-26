@@ -38,5 +38,8 @@
 # Sonarlint plugin
 .idea/sonarlint
 
+# Vagrant
+vagrant/.vagrant
+
 
 # End of https://www.gitignore.io/api/phpstorm
