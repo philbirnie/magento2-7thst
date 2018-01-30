@@ -27,7 +27,10 @@ echo "===================== PERCONA INSTALLATION COMPLETE ====================="
 # Install PHP
 add-apt-repository -y ppa:ondrej/php && apt-get update
 
-apt-get -y install php7.1-cli php7.1-fpm php7.1-mysql php7.1-curl php7.1-opcache php7.1-mcrypt php7.1-mbstring php7.1-xsl php7.1-intl php7.1-soap php7.1-zip php7.1-gd
+apt-get -y install php7.1-cli php7.1-fpm php7.1-mysql php7.1-curl php7.1-opcache php7.1-mcrypt php7.1-mbstring php7.1-xsl php7.1-intl php7.1-soap php7.1-zip php7.1-gd php-xdebug
+
+# Copy over PHP Configuration
+sudo cp /var/www/conf/php/xdebug.ini /etc/php/7.1/mods-available/xdebug.ini
 
 echo "===================== PHP 7.1 INSTALLATION COMPLETE ====================="
 

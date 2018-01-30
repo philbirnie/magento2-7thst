@@ -158,6 +158,8 @@
       <excludeFolder url="file://$MODULE_DIR$/magento/vendor/magento/theme-frontend-blank" />
       <excludeFolder url="file://$MODULE_DIR$/magento/vendor/magento/theme-frontend-luma" />
       <excludeFolder url="file://$MODULE_DIR$/magento/vendor/magento/zendframework1" />
+      <excludeFolder url="file://$MODULE_DIR$/magento/vendor/mageplaza/module-core" />
+      <excludeFolder url="file://$MODULE_DIR$/magento/vendor/mageplaza/module-smtp" />
       <excludeFolder url="file://$MODULE_DIR$/magento/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/magento/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/magento/vendor/oyejorge/less.php" />
@@ -409,6 +411,8 @@
           <root url="file://$MODULE_DIR$/magento/vendor/magento/theme-frontend-blank" />
           <root url="file://$MODULE_DIR$/magento/vendor/magento/theme-frontend-luma" />
           <root url="file://$MODULE_DIR$/magento/vendor/magento/zendframework1" />
+          <root url="file://$MODULE_DIR$/magento/vendor/mageplaza/module-core" />
+          <root url="file://$MODULE_DIR$/magento/vendor/mageplaza/module-smtp" />
           <root url="file://$MODULE_DIR$/magento/vendor/monolog/monolog" />
           <root url="file://$MODULE_DIR$/magento/vendor/myclabs/deep-copy" />
           <root url="file://$MODULE_DIR$/magento/vendor/oyejorge/less.php" />
@@ -656,6 +660,8 @@
           <root url="file://$MODULE_DIR$/magento/vendor/magento/theme-frontend-blank" />
           <root url="file://$MODULE_DIR$/magento/vendor/magento/theme-frontend-luma" />
           <root url="file://$MODULE_DIR$/magento/vendor/magento/zendframework1" />
+          <root url="file://$MODULE_DIR$/magento/vendor/mageplaza/module-core" />
+          <root url="file://$MODULE_DIR$/magento/vendor/mageplaza/module-smtp" />
           <root url="file://$MODULE_DIR$/magento/vendor/monolog/monolog" />
           <root url="file://$MODULE_DIR$/magento/vendor/myclabs/deep-copy" />
           <root url="file://$MODULE_DIR$/magento/vendor/oyejorge/less.php" />

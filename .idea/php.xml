@@ -247,6 +247,8 @@
       <path value="$PROJECT_DIR$/magento/vendor/zendframework/zend-psr7bridge" />
       <path value="$PROJECT_DIR$/magento/vendor/zendframework/zend-code" />
       <path value="$PROJECT_DIR$/magento/vendor/zendframework/zend-validator" />
+      <path value="$PROJECT_DIR$/magento/vendor/mageplaza/module-core" />
+      <path value="$PROJECT_DIR$/magento/vendor/mageplaza/module-smtp" />
     </include_path>
   </component>
   <component name="PhpUnit">
