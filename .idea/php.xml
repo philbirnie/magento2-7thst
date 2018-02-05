@@ -247,7 +247,18 @@
       <path value="$PROJECT_DIR$/magento/vendor/zendframework/zend-psr7bridge" />
       <path value="$PROJECT_DIR$/magento/vendor/zendframework/zend-code" />
       <path value="$PROJECT_DIR$/magento/vendor/zendframework/zend-validator" />
+      <path value="$PROJECT_DIR$/magento/vendor/mageplaza/module-core" />
+      <path value="$PROJECT_DIR$/magento/vendor/mageplaza/module-smtp" />
     </include_path>
+  </component>
+  <component name="PhpProjectServersManager">
+    <servers>
+      <server host="127.0.0.1" id="471f7f9e-ae1a-465d-9d50-4040282783b1" name="Magento" port="8001" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/magento" remote-root="/var/www/magento" />
+        </path_mappings>
+      </server>
+    </servers>
   </component>
   <component name="PhpUnit">
     <phpunit_settings>

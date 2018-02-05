@@ -27,17 +27,23 @@ echo "===================== PERCONA INSTALLATION COMPLETE ====================="
 # Install PHP
 add-apt-repository -y ppa:ondrej/php && apt-get update
 
-apt-get -y install php7.1-cli php7.1-fpm php7.1-mysql php7.1-curl php7.1-opcache php7.1-mcrypt php7.1-mbstring php7.1-xsl php7.1-intl php7.1-soap php7.1-zip php7.1-gd
+apt-get -y install php7.1-cli php7.1-fpm php7.1-mysql php7.1-curl php7.1-opcache php7.1-mcrypt php7.1-mbstring php7.1-xsl php7.1-intl php7.1-soap php7.1-zip php7.1-gd php-xdebug
+
+# Copy over PHP Configuration
+sudo cp /var/www/conf/php/xdebug.ini /etc/php/7.1/mods-available/xdebug.ini
 
 echo "===================== PHP 7.1 INSTALLATION COMPLETE ====================="
 
 # Set up NGINX configuration
 
 # Copy Over Configuration File to conf.d folder
-sudo cp /var/www/conf/site.conf /etc/nginx/conf.d
+sudo cp /var/www/conf/nginx/site.conf /etc/nginx/conf.d
+
+# Copy Over SSL Params File to conf.d folder
+sudo cp /var/www/conf/nginx/ssl-params.conf /etc/nginx/snippets/
 
 # Copy Over Magento Configuration File
-sudo cp /var/www/conf/magento.nginx.conf /etc/nginx/sites-enabled/default
+sudo cp /var/www/conf/nginx/magento.nginx.conf /etc/nginx/sites-enabled/default
 
 echo "===================== COPIED OVER NGINX FILES... TESTING & RESTARTING ====================="
 
@@ -54,6 +60,15 @@ echo "===================== COMPOSER INSTALLED ====================="
 echo "===================== SETTING PATH VARIABLE ====================="
 echo "export PATH=$PATH:/var/www/magento/bin" >> /home/vagrant/.profile
 
+
+echo "====================== INSTALLING SELF SIGNED CERTIFICATE ==================="
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -subj "/C=US/ST=Ohio/L=Columbus/O=Global Security/OU=IT Department/CN=magento2@magento.com" -out /etc/ssl/certs/nginx-selfsigned.crt
+
+openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+
+echo "ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;" > /etc/nginx/snippets/self-signed.conf
+echo "ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" >> /etc/nginx/snippets/self-signed.conf
 
 echo "===================== MAIN PROVISION FILE COMPLETED ====================="
 
