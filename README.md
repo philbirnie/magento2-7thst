@@ -10,28 +10,27 @@ This repo helps stand up a development environment for new or existing Magento 2
 ## Setup
 
 ### Always
-`docker-compose up`
+`vagrant up`
+
 
 ### First Time Only
 Unfortunately, Magento’s Composer package **requires credentials**; otherwise this would be automated, but run this command after the containers have booted:  <br />
 
-##### Fresh Install
+`cd vagrant`
+`vagrant ssh`
+`cd /var/www/magento `
+`composer install`
 
-`docker-compose exec php /var/www/composer.phar create-project --ignore-platform-reqs --repository-url=https://repo.magento.com/ magento/project-community-edition .`
+Walk through the [setup script](https://127.0.0.1:8001/setup/).
 
-Walk through the [setup script](http://localhost:8000/setup/).
+**Important!** Do _NOT_ use localhost. See: 
+https://magento.stackexchange.com/questions/194828/magento-2-new-customer-account-form-not-working/211392#211392
 
-##### Existing Install
-
-Place your existing install in a `magento` folder
-
-`docker-compose exec php /var/www/composer.phar install` 
-
- Either way, get a ☕... This is going to be a while.
+ Get a ☕... This is going to be a while.
 
 ##### Development Tips
 
-The dev environment in Magento 2 can be painfully slow.  Here are some recommendations, many of which were pulled directly from the [Magento documentation](http://devdocs.magento.com/guides/v2.2/extension-dev-guide/build/optimal-dev-environment.html).
+The dev environment in Magento 2 can be  slow.  Here are some recommendations, many of which were pulled directly from the [Magento documentation](http://devdocs.magento.com/guides/v2.2/extension-dev-guide/build/optimal-dev-environment.html).
 
 1. Disable only FPC and Block Cache.  Leave all others on. Turn all caches on for front-end development or testing
 2. Enable only the extensions that you need.  Many of the analytics extensions are completely unnecessary. 
@@ -41,11 +40,12 @@ The dev environment in Magento 2 can be painfully slow.  Here are some recommend
 ### Stack
 
 1. **MySQL:** Percona, 5.7
-2. **PHP-FPM:** FPM-Apline, 7.1
-2. **Nginx** 
+2. **PHP-FPM:** 7.1
+3. **Nginx** 
+4. **Ubuntu: 16.4**
 
 ### Benchmarks
 
 ##### Loading Products Page in Admin (with 0 products)
 1. Docker: 29s
-2. Vagrant: 
+2. Vagrant: 2s
