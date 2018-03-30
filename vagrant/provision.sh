@@ -31,6 +31,8 @@ apt-get -y install php7.1-cli php7.1-fpm php7.1-mysql php7.1-curl php7.1-opcache
 
 # Copy over PHP Configuration
 sudo cp /var/www/conf/php/xdebug.ini /etc/php/7.1/mods-available/xdebug.ini
+sudo mv /etc/php/7.1/fpm/pool.d/www.conf /etc/php/7.1/fpm/pool.d/www.conf.bak
+sudo cp /var/www/conf/php/www.conf /etc/php/7.1/fpm/pool.d/www.conf
 
 echo "===================== PHP 7.1 INSTALLATION COMPLETE ====================="
 
