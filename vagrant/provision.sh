@@ -72,6 +72,13 @@ openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 echo "ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;" > /etc/nginx/snippets/self-signed.conf
 echo "ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" >> /etc/nginx/snippets/self-signed.conf
 
+echo "================ CERTIFICATE INSTALLED; TESTING AND RESTARTING NGINX ==============="
+
+sudo nginx -t
+
+service nginx restart
+
+
 echo "===================== MAIN PROVISION FILE COMPLETED ====================="
 
 exit 0

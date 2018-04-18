@@ -37,6 +37,26 @@ The dev environment in Magento 2 can be  slow.  Here are some recommendations, m
 3. Opcache is enabled -- this appears to make a _substantial_ difference. 
 4. Under `Stores -> Configuration -> Advanced -> Developer`, bundle and concatenate JS/CSS when feasible.  The excessive number of requests in Docker slows the site down substantially. (Obviously this is not feasible when doing FE work)
 
+### Deployment
+
+Deploying to production:
+
+1. `bin/magento maintenance:enable` - Enable Maintenance Mode
+2. `bin/magento setup:upgrade` - Run setup Script (and clear cache)
+3. `bin/magento setup:di:compile` - Compile code
+4. `bin/magento setup:static-content:deploy` - Compile Static Content (CSS, JS, Assets)
+5. `bin/magento maintenance:disable` - Disable Maintenance Mode
+
+Or... in a single line (for MageMojo, hence the `php70`):
+
+<pre>
+php70 bin/magento maintenance:enable;\
+php70 bin/magento setup:upgrade;\
+php70 bin/magento setup:di:compile;\
+php70 bin/magento setup:static-content:deploy;\
+php70 bin/magento maintenance:disable
+</pre>
+
 ### Stack
 
 1. **MySQL:** Percona, 5.7
