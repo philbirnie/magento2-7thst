@@ -16,10 +16,12 @@ This repo helps stand up a development environment for new or existing Magento 2
 ### First Time Only
 Unfortunately, Magento’s Composer package **requires credentials**; otherwise this would be automated, but run this command after the containers have booted:  <br />
 
-`cd vagrant`
-`vagrant ssh`
-`cd /var/www/magento `
-`composer install`
+<pre>
+cd vagrant
+vagrant ssh
+cd /var/www/magento
+composer install
+</pre>
 
 Walk through the [setup script](https://127.0.0.1:8001/setup/).
 
@@ -39,7 +41,7 @@ The dev environment in Magento 2 can be  slow.  Here are some recommendations, m
 
 ### Deployment
 
-Deploying to production:
+Deploying to production: 
 
 1. `bin/magento maintenance:enable` - Enable Maintenance Mode
 2. `bin/magento setup:upgrade` - Run setup Script (and clear cache)
@@ -47,7 +49,7 @@ Deploying to production:
 4. `bin/magento setup:static-content:deploy` - Compile Static Content (CSS, JS, Assets)
 5. `bin/magento maintenance:disable` - Disable Maintenance Mode
 
-Or... in a single line (for MageMojo, hence the `php70`):
+Or... in a single line (for MageMojo, hence the `php70`): 
 
 <pre>
 php70 bin/magento maintenance:enable;\
