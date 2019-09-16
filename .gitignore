@@ -35,6 +35,9 @@
 # .idea/misc.xml
 # *.ipr
 
+# Logs
+*.log
+
 # Sonarlint plugin
 .idea/sonarlint
 
