@@ -31,7 +31,7 @@ The dev environment in Magento 2 can be  slow.  Here are some recommendations, m
 2. Enable only the extensions that you need.  Many of the analytics extensions are completely unnecessary. 
 3. Opcache is enabled -- this appears to make a _substantial_ difference. 
 4. Under `Stores -> Configuration -> Advanced -> Developer`, bundle and concatenate JS/CSS when feasible.  The excessive number of requests in Docker slows the site down substantially. (Obviously this is not feasible when doing FE work)
-5. Synced folders are disabled for performance reasons; if you wish to enable them, see instructions in Vagrant file. This also means that you will want to initially rsync after you get everything set up.  Simply run this command.
+5. Synced folders are disabled for performance reasons; if you wish to enable them, see instructions in Vagrant file. This also means that you will want to initially rsync after you get everything set up.  Simply run this command from within the project root. `scp -P 2222 -r vagrant@127.0.0.1:/var/www/magento .` (You may need to add your key to the vagrant box) For subsequent updates, (if not using your IDE, use rsync)
 
 ### Deployment
 
