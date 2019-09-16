@@ -1,4 +1,4 @@
-Magento 2.2 Development Environment
+Magento 2.3 Development Environment
 ====================================
 
 Author: Phil Birnie, info[at]7thstreetweb.com
