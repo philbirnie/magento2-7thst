@@ -14,14 +14,7 @@ This repo helps stand up a development environment for new or existing Magento 2
 
 
 ### First Time Only
-Unfortunately, Magento’s Composer package **requires credentials**; otherwise this would be automated, but run this command after the containers have booted:  <br />
-
-<pre>
-cd vagrant
-vagrant ssh
-cd /var/www/magento
-composer install
-</pre>
+Unfortunately, Magento’s Composer package **requires credentials**; In `/vagrant/conf/composer`, please copy `auth.json.template` to `auth.json` with your Magento Marketplace public and private key.  This is _not_ the same as your login and password<br />
 
 Walk through the [setup script](https://127.0.0.1:8001/setup/).
 

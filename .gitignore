@@ -40,6 +40,7 @@
 
 # Vagrant
 vagrant/.vagrant
+vagrant/conf/composer/auth.json
 
 
 # End of https://www.gitignore.io/api/phpstorm

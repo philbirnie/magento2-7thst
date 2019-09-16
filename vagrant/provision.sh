@@ -27,7 +27,7 @@ echo "===================== PERCONA INSTALLATION COMPLETE ====================="
 # Install PHP
 add-apt-repository -y ppa:ondrej/php && apt-get update
 
-apt-get -y install php7.2-cli php7.2-fpm php7.2-mysql php7.2-curl php7.2-opcache php7.2-mbstring php7.2-xsl php7.2-intl php7.2-soap php7.2-zip php7.2-gd php-xdebug
+apt-get -y install php7.2-cli php7.2-fpm php7.2-mysql php7.2-curl php7.2-opcache php7.2-mbstring php7.2-xsl php7.2-intl php7.2-soap php7.2-zip php7.2-gd php7.2-bcmath php-xdebug
 
 # Copy over PHP Configuration
 sudo cp /vagrant/conf/php/xdebug.ini /etc/php/7.2/mods-available/xdebug.ini
@@ -37,6 +37,12 @@ sudo cp /vagrant/conf/php/www.conf /etc/php/7.2/fpm/pool.d/www.conf
 echo "===================== PHP 7.2 INSTALLATION COMPLETE ====================="
 
 # Set up NGINX configuration
+
+# Make Web Directory
+
+mkdir /var/www/magento
+chown vagrant:vagrant /var/www/magento
+chmod 755 /var/www/magento
 
 # Copy Over Configuration File to conf.d folder
 sudo cp /vagrant/conf/nginx/site.conf /etc/nginx/conf.d
