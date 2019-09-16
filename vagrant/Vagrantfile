@@ -3,10 +3,10 @@
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "ubuntu/bionic64"
 
   config.vm.provider "virtualbox" do |v|
-    v.name = "magento2"
+    v.name = "magento"
   end
 
 
@@ -27,7 +27,10 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "../", "/var/www/", type: "nfs", mount_options: ['rw', 'vers=3', 'tcp', 'fsc' ,'actimeo=1']
+  #
+  # You CAN sync up entire project folder if you'd like, but we've noticed this is a major performance hog.
+  # Much Better is to have your IDE upload to the vagrant box as files are changed if you have those capabilities.  PHPStorm and # VSCode both do. Simply change disabled to "false" to activate.
+  config.vm.synced_folder "../", "/var/www/", type: "nfs", mount_options: ['rw', 'vers=3', 'tcp', 'fsc' ,'actimeo=1'], disabled: true
 
   config.vm.provision "shell", type: "shell", path: "provision.sh"
   config.vm.provision "mysql", type: "shell", path: "provision-mysql.sh"

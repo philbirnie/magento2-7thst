@@ -11,8 +11,8 @@ echo "===================== NGINX INSTALLATION COMPLETE ====================="
 
 
 # Install Percona
-wget https://repo.percona.com/apt/percona-release_0.1-4.$(lsb_release -sc)_all.deb
-dpkg -i percona-release_0.1-4.$(lsb_release -sc)_all.deb
+wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
+dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
 apt-get update
 
 export DEBIAN_FRONTEND=noninteractive
@@ -27,25 +27,25 @@ echo "===================== PERCONA INSTALLATION COMPLETE ====================="
 # Install PHP
 add-apt-repository -y ppa:ondrej/php && apt-get update
 
-apt-get -y install php7.2-cli php7.2-fpm php7.2-mysql php7.2-curl php7.2-opcache php7.2-mcrypt php7.2-mbstring php7.2-xsl php7.2-intl php7.2-soap php7.2-zip php7.2-gd php-xdebug
+apt-get -y install php7.2-cli php7.2-fpm php7.2-mysql php7.2-curl php7.2-opcache php7.2-mbstring php7.2-xsl php7.2-intl php7.2-soap php7.2-zip php7.2-gd php-xdebug
 
 # Copy over PHP Configuration
-sudo cp /var/www/conf/php/xdebug.ini /etc/php/7.1/mods-available/xdebug.ini
-sudo mv /etc/php/7.1/fpm/pool.d/www.conf /etc/php/7.1/fpm/pool.d/www.conf.bak
-sudo cp /var/www/conf/php/www.conf /etc/php/7.1/fpm/pool.d/www.conf
+sudo cp /vagrant/conf/php/xdebug.ini /etc/php/7.2/mods-available/xdebug.ini
+sudo mv /etc/php/7.2/fpm/pool.d/www.conf /etc/php/7.2/fpm/pool.d/www.conf.bak
+sudo cp /vagrant/conf/php/www.conf /etc/php/7.2/fpm/pool.d/www.conf
 
-echo "===================== PHP 7.1 INSTALLATION COMPLETE ====================="
+echo "===================== PHP 7.2 INSTALLATION COMPLETE ====================="
 
 # Set up NGINX configuration
 
 # Copy Over Configuration File to conf.d folder
-sudo cp /var/www/conf/nginx/site.conf /etc/nginx/conf.d
+sudo cp /vagrant/conf/nginx/site.conf /etc/nginx/conf.d
 
 # Copy Over SSL Params File to conf.d folder
-sudo cp /var/www/conf/nginx/ssl-params.conf /etc/nginx/snippets/
+sudo cp /vagrant/conf/nginx/ssl-params.conf /etc/nginx/snippets/
 
 # Copy Over Magento Configuration File
-sudo cp /var/www/conf/nginx/magento.nginx.conf /etc/nginx/sites-enabled/default
+sudo cp /vagrant/conf/nginx/magento.nginx.conf /etc/nginx/sites-enabled/default
 
 echo "===================== COPIED OVER NGINX FILES... TESTING & RESTARTING ====================="
 

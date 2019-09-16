@@ -30,10 +30,10 @@ echo "FLUSH PRIVILEGES"
 echo "====================== MYSQL IMPORT (if mysql/mysql.sql.gz exists) ====================="
 
 
-if [ -f /var/www/mysql/mysql.sql.gz ]; then
+if [ -f /vagrant/mysql/mysql.sql.gz ]; then
     gzip -d /var/www/mysql/mysql.sql.gz
-    mysql -u ${DB} -p${DB} ${DB}  < /var/www/mysql/mysql.sql
-    gzip /var/www/mysql/mysql.sql
+    mysql -u ${DB} -p${DB} ${DB}  < /vagrant/mysql/mysql.sql
+    gzip /vagrant/mysql/mysql.sql
 fi
 
 echo "===================== MYSQL SETUP COMPLETE  CREDENTIALS BELOW ====================="

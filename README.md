@@ -5,7 +5,7 @@ Author: Phil Birnie, info[at]7thstreetweb.com
 
 ## Overview
 
-This repo helps stand up a development environment for new or existing Magento 2.2 implementations. 
+This repo helps stand up a development environment for new or existing Magento 2.3 implementations on Ubuntu version Bionic Beaver.
 
 ## Setup
 
@@ -38,6 +38,7 @@ The dev environment in Magento 2 can be  slow.  Here are some recommendations, m
 2. Enable only the extensions that you need.  Many of the analytics extensions are completely unnecessary. 
 3. Opcache is enabled -- this appears to make a _substantial_ difference. 
 4. Under `Stores -> Configuration -> Advanced -> Developer`, bundle and concatenate JS/CSS when feasible.  The excessive number of requests in Docker slows the site down substantially. (Obviously this is not feasible when doing FE work)
+5. Synced folders are disabled for performance reasons; if you wish to enable them, see instructions in Vagrant file. This also means that you will want to initially rsync after you get everything set up.  Simply run this command.
 
 ### Deployment
 
@@ -62,9 +63,9 @@ php70 bin/magento maintenance:disable
 ### Stack
 
 1. **MySQL:** Percona, 5.7
-2. **PHP-FPM:** 7.1
+2. **PHP-FPM:** 7.2
 3. **Nginx** 
-4. **Ubuntu: 16.4**
+4. **Ubuntu: 18.04**
 
 ### Benchmarks
 
