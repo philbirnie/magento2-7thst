@@ -19,6 +19,8 @@ composer create-project --repository=https://repo.magento.com/ magento/project-c
 
 composer install
 
+sudo chown -R www-data:www-data /var/www/magento
+
 echo "===================== ENDING MAGENTO PROVISION ====================="
 
 exit 0

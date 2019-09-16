@@ -7,6 +7,13 @@ apt-get update
 
 # Install nginx
 apt-get install -y nginx
+
+echo "Adding www-data user to vagrant group and vice versa"
+
+# Syntax usermod add -a -G GROUP USER
+usermod -a -G vagrant www-data
+usermod -a -G www-data vagrant
+
 echo "===================== NGINX INSTALLATION COMPLETE ====================="
 
 
